@@ -26,7 +26,6 @@ public class Execute extends HttpServlet {
     private String groupName = "";
     private Integer wlanNum = 3;
     private String accessToken = "";
-    //private String bayload = "{\"wlan\": {\"a_max_tx_rate\": \"54\", \"a_min_tx_rate\": \"12\", \"access_type\": \"unrestricted\", \"air_time_limit_cb\": false, \"auth_cache_timeout\": 24, \"auth_server1\": \"\", \"auth_survivability\": false, \"bandwidth_limit_cb\": false, \"blacklist\": true, \"broadcast_filter\": \"arp\", \"called_station_id_type\": \"macaddr\", \"captive_portal\": \"disable\", \"deny_intra_vlan_traffic\": false, \"disable_ssid\": false, \"dmo_channel_util_threshold\": 90, \"dot11k\": false, \"dot11r\": false, \"dot11v\": false, \"download_role\": false, \"dtim_period\": 1, \"dynamic_multicast_optimization\": false, \"dynamic_vlans\": [], \"essid\": \"GTK_SSID_NAME\", \"g_max_tx_rate\": \"54\", \"g_min_tx_rate\": \"12\", \"hide_ssid\": false, \"high_efficiency_disable\": true, \"high_throughput_disable\": true, \"inactivity_timeout\": 1000, \"mac_authentication\": false, \"max_clients_threshold\": 64, \"mdid\": \"\", \"multicast_rate_optimization\": false, \"name\": \"GTK_SSID_NAME\", \"okc\": false, \"opmode\": \"opensystem\",  \"opmode_transition_disable\": true, \"per_user_limit_cb\": false, \"rf_band\": \"all\", \"roles\": [], \"set_role_machine_auth_machine_only\": \"\", \"ssid_encoding\": \"utf8 \",\"type\": \"employee\", \"user_bridging\": true, \"very_high_throughput_disable\": true, \"vlan\": \"GTK_SSID_VLAN\",\"wep_index\": 0, \"wep_key\": \"\", \"advertise_ap_name\": true, \"wpa_passphrase\": \"\", \"zone\":\"Lobby,Pool\"}, \"access_rule\": {\"name\": \"GTK_SSID_NAME\", \"action\": \"allow\" } }";
     private String payload = "";
 
     /**
@@ -146,7 +145,7 @@ System.out.println(">>> Command - "+vlan+" - "+ ssidName);
             // invoke all supplied Callables
             List<Future<JSONObject>> taskFutureList = executorService.invokeAll(callables);
 
-            /* Obtain result once it becomes available */
+            // Obtain result once it becomes available
             for (Future<JSONObject> future : taskFutureList) {
                 jsonArray.put(future.get());
             }
@@ -168,7 +167,6 @@ System.out.println(">>> Command - "+vlan+" - "+ ssidName);
         for(int i=1; i<=wlanNum; i++){
             String vlan = "145"+i;
             String ssid = "Canada"+i;
- //           System.out.println(sendCommand(vlan, ssid, "POST"));
             jsonArray.put(sendCommand(vlan, ssid, "POST"));
         }
         return jsonArray;

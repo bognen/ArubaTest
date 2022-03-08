@@ -172,8 +172,7 @@
                   <button type="submit" class="btn btn-primary" id="remove">Remove</button>
               </div>
           </div>
+          <a href="https://github.com/bognen/ArubaTest" target="_blank"><h4 class="mt-4">SOURCE CODE</h4></a>
       </div>
-        <a href="" target="_blank"><h3>SOURCE CODE</h3></a>
   </body>
 </html>
-<!-- https://jquery.malsup.com/block/ -->
